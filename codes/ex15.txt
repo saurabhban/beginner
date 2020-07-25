@@ -1,0 +1,3 @@
+this is file that we will be going to read
+check the status of file
+file name is ex15.txt
