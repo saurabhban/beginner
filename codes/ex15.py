@@ -10,7 +10,9 @@ def remove(string):
 print ("School Admission System")
 print("*"* 20)
 database = argv[1]
-ptr = open(database)
+print(database)
+ptr = open(database, '+a')
+print(ptr.read())
 name = input("enter your name>")
 age = int(input ("enter your age 4-16 years >"))
 if (age > 16 or age < 4):
@@ -28,8 +30,16 @@ payroll = remove(payroll)
 payroll = payroll.lower()
 print(payroll)
 if (payroll == "true"):
-	rollnumber = random.randint(1,100)
+	rollnumber = str(random.randint(1,100))
 	print(f"name of student {name} took admission in class {classes} and rollnumber is {rollnumber}")
+	ptr.write("\n")
+	ptr.write(name)
+	ptr.write(" ")
+	ptr.write(classes)
+	ptr.write(" ")
+	ptr.write(rollnumber)
+
+
 
 
 
