@@ -1,0 +1,1055 @@
+{
+  "nginxConfigValues": {
+    "directives": {
+      "stats-uri-server": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "unix:/write-nginx/metrics.sock chmod=777", 
+          "directive": "listen"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "on", 
+          "directive": "stub_status_internal"
+        }
+      ], 
+      "uha-uds-server": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "unix:/write-nginx/uha.sock", 
+          "directive": "listen"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "uha", 
+          "directive": "dynamic_config_client_type"
+        }
+      ], 
+      "frontend-http2-ssl-defaults": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "TLSv1.2", 
+          "directive": "ssl_protocols"
+        }, 
+        {
+          "value": "/read-nginx/dhparam.pem", 
+          "directive": "ssl_dhparam"
+        }, 
+        {
+          "value": "10m", 
+          "directive": "ssl_session_timeout"
+        }, 
+        {
+          "value": "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA", 
+          "directive": "ssl_ciphers"
+        }, 
+        {
+          "value": "on", 
+          "directive": "ssl_prefer_server_ciphers"
+        }
+      ], 
+      "stream": [
+        {
+          "value": "    ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }
+      ], 
+      "tcp-proxy-settings": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "1s", 
+          "directive": "proxy_connect_timeout"
+        }
+      ], 
+      "global": [
+        {
+          "value": "", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "stderr notice", 
+          "directive": "error_log"
+        }, 
+        {
+          "value": "off", 
+          "directive": "daemon"
+        }, 
+        {
+          "value": "/run/nginx.pid", 
+          "directive": "pid"
+        }, 
+        {
+          "value": 131072, 
+          "directive": "worker_rlimit_nofile"
+        }, 
+        {
+          "value": 2, 
+          "directive": "worker_processes"
+        }
+      ], 
+      "uhc-uds-server": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "unix:/write/uhc.sock", 
+          "directive": "listen"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "uhc", 
+          "directive": "dynamic_config_client_type"
+        }
+      ], 
+      "http-proxy-settings": [
+        {
+          "value": "            ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": 1.1, 
+          "directive": "proxy_http_version"
+        }, 
+        {
+          "value": "$http_host", 
+          "directive": "proxy_set_header Host"
+        }, 
+        {
+          "value": "$remote_addr", 
+          "directive": "proxy_set_header X-Real-IP"
+        }, 
+        {
+          "value": "$proxy_add_x_forwarded_for", 
+          "directive": "proxy_set_header X-Forwarded-For"
+        }, 
+        {
+          "value": "$scheme", 
+          "directive": "proxy_set_header X-Forwarded-Proto"
+        }, 
+        {
+          "value": "$server_port", 
+          "directive": "proxy_set_header X-Forwarded-Port"
+        }, 
+        {
+          "value": "$host:$server_port", 
+          "directive": "proxy_set_header X-Forwarded-Host"
+        }, 
+        {
+          "value": "\"\"", 
+          "directive": "proxy_set_header Connection"
+        }, 
+        {
+          "value": "off", 
+          "directive": "proxy_buffering"
+        }, 
+        {
+          "value": "off", 
+          "directive": "proxy_request_buffering"
+        }, 
+        {
+          "value": "on", 
+          "directive": "proxy_ignore_client_abort"
+        }, 
+        {
+          "value": "1s", 
+          "directive": "proxy_connect_timeout"
+        }, 
+        {
+          "value": "X-Accel-Redirect X-Accel-Expires X-Accel-Limit-Rate X-Accel-Buffering X-Accel-Charset Expires Cache-Control Set-Cookie Vary", 
+          "directive": "proxy_ignore_headers"
+        }, 
+        {
+          "value": "timeout error", 
+          "directive": "proxy_next_upstream"
+        }
+      ], 
+      "http-settings": [
+        {
+          "value": "    ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "main  '[$time_local] $remote_addr \"$request\" $status $body_bytes_sent $request_length $request_time $upstream_addr $upstream_response_time \"$http_referer\" \"$http_user_agent\"'", 
+          "directive": "log_format"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "application/octet-stream", 
+          "directive": "default_type"
+        }, 
+        {
+          "value": "off", 
+          "directive": "server_tokens"
+        }, 
+        {
+          "value": "on", 
+          "directive": "sendfile"
+        }, 
+        {
+          "value": "on", 
+          "directive": "tcp_nopush"
+        }, 
+        {
+          "value": "on", 
+          "directive": "tcp_nodelay"
+        }, 
+        {
+          "value": 65, 
+          "directive": "keepalive_timeout"
+        }, 
+        {
+          "value": 10000, 
+          "directive": "keepalive_requests"
+        }, 
+        {
+          "value": "on", 
+          "directive": "reset_timedout_connection"
+        }, 
+        {
+          "value": 0, 
+          "directive": "client_max_body_size"
+        }, 
+        {
+          "value": 256, 
+          "directive": "server_names_hash_bucket_size"
+        }, 
+        {
+          "value": "on", 
+          "directive": "underscores_in_headers"
+        }, 
+        {
+          "value": "8k", 
+          "directive": "proxy_buffer_size"
+        }
+      ], 
+      "upstream-block-settings": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "dynamic_config", 
+          "directive": "zone"
+        }
+      ], 
+      "frontend-ssl-defaults": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "TLSv1.2", 
+          "directive": "ssl_protocols"
+        }, 
+        {
+          "value": "/read-nginx/dhparam.pem", 
+          "directive": "ssl_dhparam"
+        }, 
+        {
+          "value": "10m", 
+          "directive": "ssl_session_timeout"
+        }, 
+        {
+          "value": "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA", 
+          "directive": "ssl_ciphers"
+        }, 
+        {
+          "value": "on", 
+          "directive": "ssl_prefer_server_ciphers"
+        }
+      ], 
+      "events": [
+        {
+          "value": "    ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": 131072, 
+          "directive": "worker_connections"
+        }
+      ], 
+      "tcp-settings": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }
+      ]
+    }
+  }, 
+  "ipAssignments": [], 
+  "network": {
+    "interfaces": {}, 
+    "sysctls": [], 
+    "limits": {
+      "ingress": "1M", 
+      "egress": "1M"
+    }
+  }, 
+  "hostIps": {}, 
+  "activeActiveHostInfos": {}, 
+  "transitioningToState": "null", 
+  "generation": 1, 
+  "state": "NONE", 
+  "version": 4, 
+  "hosts": [
+    {
+      "hostId": "ocid1.instance.oc1.ca-toronto-1.ab2g6ljrfqpixeas6lvpp4ykakbmvqnf7klgjebpvg5ztihxfuja5cylf4ga", 
+      "generation": 0, 
+      "primary": false, 
+      "hostAddress": "10.18.50.101", 
+      "nicName": "eno2d1", 
+      "port": 10000, 
+      "cpuAffinityEnabled": true
+    }, 
+    {
+      "hostId": "ocid1.instance.oc1.ca-toronto-1.ab2g6ljr3hnbhzzd3m23ieucjahkzomcl3bobslwzap2ogqohxcwqk7wwqha", 
+      "generation": 0, 
+      "primary": true, 
+      "hostAddress": "10.18.50.56", 
+      "nicName": "eno2d1", 
+      "port": 10000, 
+      "cpuAffinityEnabled": true
+    }
+  ], 
+  "sealedReferences": {}, 
+  "workerCount": 2, 
+  "vnics": [], 
+  "activeActiveLB": false, 
+  "loadBalancer": {
+    "backendSets": {
+      "backendSetLbCookieStickiness": {
+        "policy": "ROUND_ROBIN", 
+        "backends": [
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13050
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13066
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13492
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13150
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13217
+          }
+        ], 
+        "name": "backendSetLbCookieStickiness", 
+        "lbCookieSessionPersistenceConfiguration": {
+          "domain": "test.example.com", 
+          "secure": false, 
+          "maxAge": 3600, 
+          "cookieName": "X-Oracle-BMC-lb-cookie", 
+          "disableFallback": false, 
+          "path": "/", 
+          "httpOnly": false
+        }, 
+        "healthChecker": {
+          "retries": 3, 
+          "responseBodyRegex": "polo", 
+          "retCode": 200, 
+          "urlPath": "/healthcheck", 
+          "interval": 2050, 
+          "timeout": 2000, 
+          "type": "HTTP", 
+          "port": 6999
+        }
+      }, 
+      "backendSetAllowFooBar": {
+        "policy": "ROUND_ROBIN", 
+        "backends": [
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13050
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13066
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13492
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13150
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13217
+          }
+        ], 
+        "name": "backendSetAllowFooBar", 
+        "healthChecker": {
+          "retries": 3, 
+          "responseBodyRegex": "polo", 
+          "retCode": 200, 
+          "urlPath": "/healthcheck", 
+          "interval": 2050, 
+          "timeout": 2000, 
+          "type": "HTTP", 
+          "port": 6999
+        }
+      }, 
+      "backendSetAppCookieStickiness": {
+        "policy": "ROUND_ROBIN", 
+        "backends": [
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13050
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13066
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13492
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13150
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13217
+          }
+        ], 
+        "name": "backendSetAppCookieStickiness", 
+        "sessionPersistenceConfiguration": {
+          "disableFallback": true, 
+          "cookieName": "backendcookie"
+        }, 
+        "healthChecker": {
+          "retries": 3, 
+          "responseBodyRegex": "polo", 
+          "retCode": 200, 
+          "urlPath": "/healthcheck", 
+          "interval": 2050, 
+          "timeout": 2000, 
+          "type": "HTTP", 
+          "port": 6999
+        }
+      }, 
+      "backendSetNoStickiness": {
+        "policy": "ROUND_ROBIN", 
+        "backends": [
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13050
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13066
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13492
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13150
+          }, 
+          {
+            "drain": false, 
+            "weight": 1, 
+            "ipAddress": "10.216.1.4", 
+            "offline": false, 
+            "backup": false, 
+            "port": 13217
+          }
+        ], 
+        "name": "backendSetNoStickiness", 
+        "healthChecker": {
+          "retries": 3, 
+          "responseBodyRegex": "polo", 
+          "retCode": 200, 
+          "urlPath": "/healthcheck", 
+          "interval": 2050, 
+          "timeout": 2000, 
+          "type": "HTTP", 
+          "port": 6999
+        }
+      }
+    }, 
+    "multiDatacenter": false, 
+    "vips": {
+      "private-vip": {
+        "isPublic": false, 
+        "name": "private-vip", 
+        "address": "10.216.2.3"
+      }
+    }, 
+    "vhosts": [], 
+    "ipMode": "IPv4", 
+    "nsgIds": [], 
+    "id": "ocid1.loadbalancer.oc1.ca-toronto-1.aaaaaaaamv2pga6vfpmux7ynflqgqjk2bdqewtc47zxkdqmyfu2bqsv4bjoa", 
+    "createdAt": 1596105879297, 
+    "nginxConfigValues": {
+      "stats-uri-server": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "unix:/write-nginx/metrics.sock chmod=777", 
+          "directive": "listen"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "on", 
+          "directive": "stub_status_internal"
+        }
+      ], 
+      "uha-uds-server": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "unix:/write-nginx/uha.sock", 
+          "directive": "listen"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "uha", 
+          "directive": "dynamic_config_client_type"
+        }
+      ], 
+      "frontend-http2-ssl-defaults": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "TLSv1.2", 
+          "directive": "ssl_protocols"
+        }, 
+        {
+          "value": "/read-nginx/dhparam.pem", 
+          "directive": "ssl_dhparam"
+        }, 
+        {
+          "value": "10m", 
+          "directive": "ssl_session_timeout"
+        }, 
+        {
+          "value": "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA", 
+          "directive": "ssl_ciphers"
+        }, 
+        {
+          "value": "on", 
+          "directive": "ssl_prefer_server_ciphers"
+        }
+      ], 
+      "stream": [
+        {
+          "value": "    ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }
+      ], 
+      "tcp-proxy-settings": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "1s", 
+          "directive": "proxy_connect_timeout"
+        }
+      ], 
+      "global": [
+        {
+          "value": "", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "stderr notice", 
+          "directive": "error_log"
+        }, 
+        {
+          "value": "off", 
+          "directive": "daemon"
+        }, 
+        {
+          "value": "/run/nginx.pid", 
+          "directive": "pid"
+        }, 
+        {
+          "value": 131072, 
+          "directive": "worker_rlimit_nofile"
+        }, 
+        {
+          "value": 2, 
+          "directive": "worker_processes"
+        }
+      ], 
+      "uhc-uds-server": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "unix:/write/uhc.sock", 
+          "directive": "listen"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "uhc", 
+          "directive": "dynamic_config_client_type"
+        }
+      ], 
+      "http-proxy-settings": [
+        {
+          "value": "            ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": 1.1, 
+          "directive": "proxy_http_version"
+        }, 
+        {
+          "value": "$http_host", 
+          "directive": "proxy_set_header Host"
+        }, 
+        {
+          "value": "$remote_addr", 
+          "directive": "proxy_set_header X-Real-IP"
+        }, 
+        {
+          "value": "$proxy_add_x_forwarded_for", 
+          "directive": "proxy_set_header X-Forwarded-For"
+        }, 
+        {
+          "value": "$scheme", 
+          "directive": "proxy_set_header X-Forwarded-Proto"
+        }, 
+        {
+          "value": "$server_port", 
+          "directive": "proxy_set_header X-Forwarded-Port"
+        }, 
+        {
+          "value": "$host:$server_port", 
+          "directive": "proxy_set_header X-Forwarded-Host"
+        }, 
+        {
+          "value": "\"\"", 
+          "directive": "proxy_set_header Connection"
+        }, 
+        {
+          "value": "off", 
+          "directive": "proxy_buffering"
+        }, 
+        {
+          "value": "off", 
+          "directive": "proxy_request_buffering"
+        }, 
+        {
+          "value": "on", 
+          "directive": "proxy_ignore_client_abort"
+        }, 
+        {
+          "value": "1s", 
+          "directive": "proxy_connect_timeout"
+        }, 
+        {
+          "value": "X-Accel-Redirect X-Accel-Expires X-Accel-Limit-Rate X-Accel-Buffering X-Accel-Charset Expires Cache-Control Set-Cookie Vary", 
+          "directive": "proxy_ignore_headers"
+        }, 
+        {
+          "value": "timeout error", 
+          "directive": "proxy_next_upstream"
+        }
+      ], 
+      "http-settings": [
+        {
+          "value": "    ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "main  '[$time_local] $remote_addr \"$request\" $status $body_bytes_sent $request_length $request_time $upstream_addr $upstream_response_time \"$http_referer\" \"$http_user_agent\"'", 
+          "directive": "log_format"
+        }, 
+        {
+          "value": "off", 
+          "directive": "access_log"
+        }, 
+        {
+          "value": "application/octet-stream", 
+          "directive": "default_type"
+        }, 
+        {
+          "value": "off", 
+          "directive": "server_tokens"
+        }, 
+        {
+          "value": "on", 
+          "directive": "sendfile"
+        }, 
+        {
+          "value": "on", 
+          "directive": "tcp_nopush"
+        }, 
+        {
+          "value": "on", 
+          "directive": "tcp_nodelay"
+        }, 
+        {
+          "value": 65, 
+          "directive": "keepalive_timeout"
+        }, 
+        {
+          "value": 10000, 
+          "directive": "keepalive_requests"
+        }, 
+        {
+          "value": "on", 
+          "directive": "reset_timedout_connection"
+        }, 
+        {
+          "value": 0, 
+          "directive": "client_max_body_size"
+        }, 
+        {
+          "value": 256, 
+          "directive": "server_names_hash_bucket_size"
+        }, 
+        {
+          "value": "on", 
+          "directive": "underscores_in_headers"
+        }, 
+        {
+          "value": "8k", 
+          "directive": "proxy_buffer_size"
+        }
+      ], 
+      "upstream-block-settings": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "dynamic_config", 
+          "directive": "zone"
+        }
+      ], 
+      "frontend-ssl-defaults": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": "TLSv1.2", 
+          "directive": "ssl_protocols"
+        }, 
+        {
+          "value": "/read-nginx/dhparam.pem", 
+          "directive": "ssl_dhparam"
+        }, 
+        {
+          "value": "10m", 
+          "directive": "ssl_session_timeout"
+        }, 
+        {
+          "value": "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA256:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA", 
+          "directive": "ssl_ciphers"
+        }, 
+        {
+          "value": "on", 
+          "directive": "ssl_prefer_server_ciphers"
+        }
+      ], 
+      "events": [
+        {
+          "value": "    ", 
+          "directive": "indentation"
+        }, 
+        {
+          "value": 131072, 
+          "directive": "worker_connections"
+        }
+      ], 
+      "tcp-settings": [
+        {
+          "value": "        ", 
+          "directive": "indentation"
+        }
+      ]
+    }, 
+    "state": "PROVISIONING", 
+    "certificates": {}, 
+    "cipherSets": {}, 
+    "profile": "10Mbps-Micro", 
+    "subnets": [
+      {
+        "compartmentId": "ocid1.compartment.oc1..aaaaaaaatpucnnx6ouzcjycvk37r3i2xsbkybvst5v7z222iwkvmom2mdtea", 
+        "cidrBlock": "10.216.2.0/24", 
+        "id": "ocid1.subnet.oc1.ca-toronto-1.aaaaaaaaldn34p2wosqtufhld4nlhkn7z3uqes42iiioupj4nnde3bewxhtq", 
+        "availabilityDomain": "CA_TORONTO_1_AD_1"
+      }
+    ], 
+    "hostnames": {
+      "HTTP-80-prefixfoobar-hostname": {
+        "hostname": "*.prefixfoobar.com", 
+        "name": "HTTP-80-prefixfoobar-hostname"
+      }, 
+      "HTTP-80-allowfoobar-hostname": {
+        "hostname": "www.allowfoobar.com", 
+        "name": "HTTP-80-allowfoobar-hostname"
+      }, 
+      "HTTP-80-denyfoobarcom-hostname": {
+        "hostname": "www.denyfoobarcom.com", 
+        "name": "HTTP-80-denyfoobarcom-hostname"
+      }, 
+      "HTTP-80-foobar-hostname": {
+        "hostname": "www.foobar.com", 
+        "name": "HTTP-80-foobar-hostname"
+      }
+    }, 
+    "name": "Canary load balancer-ad1", 
+    "ruleSetsAsString": "{\"CanaryRuleSet\":{\"name\":\"CanaryRuleSet\",\"items\":[{\"action\":\"ADD_HTTP_REQUEST_HEADER\",\"header\":\"MyRequestHeader\",\"value\":\"MyValue\"},{\"action\":\"EXTEND_HTTP_REQUEST_HEADER_VALUE\",\"header\":\"MyRequestExtendableHeader\",\"prefix\":\"MyPrefix\",\"suffix\":\"MySuffix\"},{\"action\":\"REMOVE_HTTP_REQUEST_HEADER\",\"header\":\"MyRequestBadHeader\"},{\"action\":\"ADD_HTTP_RESPONSE_HEADER\",\"header\":\"MyResponseHeader\",\"value\":\"MyValue\"},{\"action\":\"EXTEND_HTTP_RESPONSE_HEADER_VALUE\",\"header\":\"MyResponseExtendableHeader\",\"prefix\":\"MyPrefix\",\"suffix\":\"MySuffix\"},{\"action\":\"REMOVE_HTTP_RESPONSE_HEADER\",\"header\":\"MyResponseBadHeader\"},{\"action\":\"CONTROL_ACCESS_USING_HTTP_METHODS\",\"allowedMethods\":[\"GET\"],\"statusCode\":405},{\"action\":\"HTTP_HEADER\",\"areInvalidCharactersAllowed\":false,\"httpLargeHeaderSizeInKB\":8},{\"action\":\"REDIRECT\",\"responseCode\":302,\"conditions\":[{\"attributeName\":\"PATH\",\"path\":\"/test\",\"matchType\":\"FORCE_LONGEST_PREFIX_MATCH\"}],\"redirectUri\":{\"host\":\"test.com\"}}]},\"AllowCanaryRuleSet\":{\"name\":\"AllowCanaryRuleSet\",\"items\":[{\"action\":\"ALLOW\",\"conditions\":[{\"attributeName\":\"SOURCE_IP_ADDRESS\",\"ipCidr\":\"10.216.1.4/32\"}],\"description\":\"permit traffic from canary host's private IP CIDR\"}]},\"DenyCanaryRuleSet\":{\"name\":\"DenyCanaryRuleSet\",\"items\":[{\"action\":\"ALLOW\",\"conditions\":[{\"attributeName\":\"SOURCE_IP_ADDRESS\",\"ipCidr\":\"172.30.1.0/24\"}],\"description\":\"permit traffic from IP CIDR of some non-canary host\"},{\"action\":\"ALLOW\",\"conditions\":[{\"attributeName\":\"SOURCE_IP_ADDRESS\",\"ipCidr\":\"240.0.0.0/4\"}],\"description\":\"permit all class E traffic (traffic coming through service gateway)\"}]}}", 
+    "tenantId": "ocid1.compartment.oc1..aaaaaaaatpucnnx6ouzcjycvk37r3i2xsbkybvst5v7z222iwkvmom2mdtea", 
+    "listeners": {
+      "HTTP-80-denyfoobarcom": {
+        "protocol": "HTTP", 
+        "name": "HTTP-80-denyfoobarcom", 
+        "connectionConfiguration": {
+          "idleTimeout": 5000
+        }, 
+        "ruleSetNames": [
+          "DenyCanaryRuleSet"
+        ], 
+        "whitelistedIPRanges": [], 
+        "vipId": "private-vip", 
+        "port": 80, 
+        "pathRouteSetName": "custompathroute", 
+        "defaultBackendSetId": "backendSetNoStickiness", 
+        "hostnameNames": [
+          "HTTP-80-denyfoobarcom-hostname"
+        ], 
+        "serverName": "HTTP-80-denyfoobarcom-hostname"
+      }, 
+      "HTTP-80": {
+        "protocol": "HTTP", 
+        "name": "HTTP-80", 
+        "connectionConfiguration": {
+          "idleTimeout": 5000
+        }, 
+        "ruleSetNames": [], 
+        "whitelistedIPRanges": [], 
+        "vipId": "private-vip", 
+        "pathRouteSetName": "custompathroute", 
+        "defaultBackendSetId": "backendSetNoStickiness", 
+        "port": 80
+      }, 
+      "HTTP-80-foobar": {
+        "protocol": "HTTP", 
+        "name": "HTTP-80-foobar", 
+        "connectionConfiguration": {
+          "idleTimeout": 5000
+        }, 
+        "ruleSetNames": [
+          "CanaryRuleSet"
+        ], 
+        "whitelistedIPRanges": [], 
+        "vipId": "private-vip", 
+        "serverName": "HTTP-80-foobar-hostname", 
+        "defaultBackendSetId": "backendSetAppCookieStickiness", 
+        "hostnameNames": [
+          "HTTP-80-foobar-hostname"
+        ], 
+        "port": 80
+      }, 
+      "HTTP-80-allowfoobar": {
+        "protocol": "HTTP", 
+        "name": "HTTP-80-allowfoobar", 
+        "connectionConfiguration": {
+          "idleTimeout": 5000
+        }, 
+        "ruleSetNames": [
+          "AllowCanaryRuleSet"
+        ], 
+        "whitelistedIPRanges": [], 
+        "vipId": "private-vip", 
+        "port": 80, 
+        "pathRouteSetName": "custompathroute", 
+        "defaultBackendSetId": "backendSetAllowFooBar", 
+        "hostnameNames": [
+          "HTTP-80-allowfoobar-hostname"
+        ], 
+        "serverName": "HTTP-80-allowfoobar-hostname"
+      }, 
+      "HTTP-80-prefixfoobar": {
+        "protocol": "HTTP", 
+        "name": "HTTP-80-prefixfoobar", 
+        "connectionConfiguration": {
+          "idleTimeout": 5000
+        }, 
+        "ruleSetNames": [], 
+        "whitelistedIPRanges": [], 
+        "vipId": "private-vip", 
+        "serverName": "HTTP-80-prefixfoobar-hostname", 
+        "defaultBackendSetId": "backendSetLbCookieStickiness", 
+        "hostnameNames": [
+          "HTTP-80-prefixfoobar-hostname"
+        ], 
+        "port": 80
+      }
+    }, 
+    "modifiedAt": 1596105879297, 
+    "pathRouteSets": {
+      "custompathroute": {
+        "name": "custompathroute", 
+        "pathRoutes": [
+          {
+            "path": "/exactmatch", 
+            "matchType": "EXACT", 
+            "backendSetName": "backendSetNoStickiness"
+          }, 
+          {
+            "path": "/forcematch", 
+            "matchType": "FORCE_LONGEST_PREFIX_MATCH", 
+            "backendSetName": "backendSetNoStickiness"
+          }, 
+          {
+            "path": "/prefixmatch", 
+            "matchType": "PREFIX", 
+            "backendSetName": "backendSetNoStickiness"
+          }, 
+          {
+            "path": "/suffixmatch", 
+            "matchType": "SUFFIX", 
+            "backendSetName": "backendSetNoStickiness"
+          }
+        ]
+      }
+    }, 
+    "cipherSuites": {}
+  }, 
+  "floatingIPs": []
+}

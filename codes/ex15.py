@@ -3,7 +3,7 @@ from sys import argv
 import random
 
 def remove(string):
-	return "".join(string.split())
+	return " ".join(string.split())
 
 
 
